@@ -4,6 +4,7 @@ import express from 'express';
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import absoluteSchema from './Schema/absoluteSchema.js';
+import cors from 'cors';
 
 const app = express();
 const port = 3000;
@@ -20,6 +21,7 @@ const Absolute = mongoose.model('Absolute', absoluteSchema);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors())
 
 app.get('/', (req, res) => {
     Absolute.find()
@@ -29,16 +31,6 @@ app.get('/', (req, res) => {
     .catch(function (err) {
         res.send(err);
     });
-
-
-    // Absolute.find(function(err, result) {
-    //     if (err) {
-    //       res.send(err);
-    //     } else {
-    //       res.send(result);
-    //     }
-    //   });
-    // res.send('Hello World')
 })
 
 app.post('/post-data', (req, res) => {
