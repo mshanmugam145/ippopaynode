@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "for connecting backend",
   "main": "index.js",
+  "engines": {
+    "node" : "18.x"
+  },
   "repository": "git@personal:mshanmugam145/ippopaynode.git",
   "author": "shanmugam145 <shanmugam@authorify.com>",
   "license": "MIT",
